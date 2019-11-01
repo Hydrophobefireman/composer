@@ -27,10 +27,7 @@ class Composer(object):
         return self._nextValue(c)
 
     def compute(self):
-        if self.args:
-            value = self.fn(*self.args, **self.kwargs)
-        else:
-            value = self.fn(**self.kwargs)
+        value = self.fn(*self.args, **self.kwargs)
         self.value = Composer.flatten_composers(value)
 
     def then(self, call):
