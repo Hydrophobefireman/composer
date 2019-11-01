@@ -46,7 +46,7 @@ from requests import get
 from bs4 import BeautifulSoup as Soup
 
 def make_soup(response):
-    return Soup(response,"html.parser")
+    return Soup(response.text,"html.parser")
 
 composer = Composer(get,"https://example.com").then(make_soup)
 soup = composer.value
